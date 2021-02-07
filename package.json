@@ -1,0 +1,27 @@
+{
+  "name": "team-profile-gen",
+  "version": "1.0.0",
+  "description": "My team profile generator using NodeJS.",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/code-monkey713/team-profile-gen.git"
+  },
+  "keywords": [],
+  "author": "Tony Tran",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/code-monkey713/team-profile-gen/issues"
+  },
+  "homepage": "https://github.com/code-monkey713/team-profile-gen#readme",
+  "dependencies": {
+    "inquirer": "^7.3.3",
+    "jest": "^26.6.3"
+  }
+}
