@@ -1,10 +1,11 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 const questions = require('./lib/questions');
-// const open = require('open');
+const open = require('open');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 const Manager = require('./lib/Manager');
+const buildHTMLTemplate = require('./src/template');
 // const Teamprofile = require('./lib/Teamprofile')
 
 let managerArray = [];
@@ -61,7 +62,8 @@ function getRole() {
         getIntern();
         break;
       default:
-        console.log('Make HTML page function!')
+        // console.log('Make HTML page function!')
+        makeHTML();
     }
   })
     .catch((error) => {
@@ -69,14 +71,22 @@ function getRole() {
     });
 }
 
+async function makeHTML(){
+  try {
+    console.log('Please wait while the index.html file is being created.');
+    const html = buildHTMLTemplate(managerArray, internArray, engineerArray);
+    fs.writeFileSync('./src/index.html', html);
+    console.log('Your file has been successfully written to the (src) folder of the project.');
+    await open('./src/index.html')
+    console.log('Check your browser for the team profile generated!');
+  } catch (error){
+    console.log(error);
+  }
+}
+
 async function start() {
   await inquirer.prompt(questions.welcome);
   getManager();
-  // const html = buildHTMLTemplate(userData);
-  // fs.writeFileSync('./index.html', html);
-  // console.log('File was successfully written.');
-  // await open('./index.html');
-  // console.log('Check your browser!');
 }
 
 start();

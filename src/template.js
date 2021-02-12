@@ -1,3 +1,4 @@
+const buildHTMLTemplate = (manager, intern, engineer) => `
 <!DOCTYPE html>
 <html lang="en">
 
@@ -116,3 +117,6 @@
 </body>
 
 </html>
+`;
+
+module.exports = buildHTMLTemplate;
