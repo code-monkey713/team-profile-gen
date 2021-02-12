@@ -11,7 +11,7 @@ let managerArray = [];
 let engineerArray = [];
 let internArray = [];
 
-async function getManager() {
+function getManager() {
   inquirer.prompt(questions.manager).then((e) => {
     const newManager = new Manager(e.name, e.id, e.email, e.officePhone);
     // console.log(newManager);
