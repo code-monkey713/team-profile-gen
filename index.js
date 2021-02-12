@@ -11,57 +11,72 @@ let managerArray = [];
 let engineerArray = [];
 let internArray = [];
 
-async function start() {
-  try {
-    await inquirer.prompt(questions.welcome);
-    getManager();
-    getEngineer();
-    getIntern();
-
-    // const html = buildHTMLTemplate(userData);
-    // fs.writeFileSync('./index.html', html);
-    // console.log('File was successfully written.');
-    // await open('./index.html');
-    // console.log('Check your browser!');
-  } catch (error) {
-    console.log(error);
-  }
-}
-
 async function getManager() {
-  try {
-    const m = await inquirer.prompt(questions.manager);
-    const newManager = new Manager(m.name, m.id, m.email, m.officePhone);
+  inquirer.prompt(questions.manager).then((e) => {
+    const newManager = new Manager(e.name, e.id, e.email, e.officePhone);
+    // console.log(newManager);
     managerArray.push(newManager);
     console.log(managerArray);
-  } catch (error) {
-    console.log(error);
-  }
+    getRole();
+  })
+    .catch((error) => {
+      console.log(error);
+    });
 }
 
-async function getEngineer() {
-  try {
-    const e = await inquirer.prompt(questions.engineer);
+function getEngineer() {
+  inquirer.prompt(questions.engineer).then((e) => {
     const newEngineer = new Engineer(e.name, e.id, e.email, e.github);
+    // console.log(newEngineer);
     engineerArray.push(newEngineer);
     console.log(engineerArray);
-  } catch (error) {
-    console.log(error);
-  }
+    getRole();
+  })
+    .catch((error) => {
+      console.log(error);
+    });
 }
 
-async function getIntern() {
-  try {
-    const i = await inquirer.prompt(questions.intern);
-    const newIntern = new Intern(i.name, i.id, i.email, i.school);
+function getIntern() {
+  inquirer.prompt(questions.intern).then((e) => {
+    const newIntern = new Intern(e.name, e.id, e.email, e.school);
+    // console.log(newIntern);
     internArray.push(newIntern);
     console.log(internArray);
-  } catch (error) {
-    console.log(error);
-  }
+    getRole();
+  })
+    .catch((error) => {
+      console.log(error);
+    });
+}
+
+function getRole() {
+  inquirer.prompt(questions.action).then((e) => {
+    // console.log(e.action);
+    switch (e.action) {
+      case 'Add an Engineer':
+        getEngineer();
+        break;
+      case 'Add an Intern':
+        getIntern();
+        break;
+      default:
+        console.log('Make HTML page function!')
+    }
+  })
+    .catch((error) => {
+      console.log(error);
+    });
+}
+
+async function start() {
+  await inquirer.prompt(questions.welcome);
+  getManager();
+  // const html = buildHTMLTemplate(userData);
+  // fs.writeFileSync('./index.html', html);
+  // console.log('File was successfully written.');
+  // await open('./index.html');
+  // console.log('Check your browser!');
 }
 
 start();
-// const teamprofile = new Teamprofile();
-
-// teamprofile.askToStart();
