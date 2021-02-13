@@ -10,11 +10,13 @@ const buildHTMLTemplate = require('./src/template');
 let managerCard = '';
 let engineerCard = '';
 let internCard = '';
+const managerArray = [];
+const engineerArray = [];
+const internArray = [];
 
 function getManager() {
   inquirer.prompt(questions.manager).then((e) => {
     const newManager = new Manager(e.name, e.id, e.email, e.officeNumber);
-    const managerArray = [];
     managerArray.push(newManager);
     managerCard = managerArray.map(m => `
     <div class="column is-narrow">
@@ -50,7 +52,6 @@ function getManager() {
 function getEngineer() {
   inquirer.prompt(questions.engineer).then((e) => {
     const newEngineer = new Engineer(e.name, e.id, e.email, e.github);
-    const engineerArray = [];
     engineerArray.push(newEngineer);
     engineerCard = engineerArray.map(g => `
     <div class="column is-narrow">
@@ -87,7 +88,6 @@ function getEngineer() {
 function getIntern() {
   inquirer.prompt(questions.intern).then((e) => {
     const newIntern = new Intern(e.name, e.id, e.email, e.school);
-    const internArray = [];
     internArray.push(newIntern);
     internCard = internArray.map(i => `
     <div class="column is-narrow">
