@@ -29,72 +29,9 @@ const buildHTMLTemplate = (manager, intern, engineer) => `
   <section class="container">
     <div class="level-item">
       <div class="columns is-multiline is-centered cards-container" id="sectioncontainer">
-        <div class="column is-narrow">
-          <article class="message is-black">
-            <div class="message-header">
-              <p>${manager.role}</p>
-              <button class="delete" aria-label="delete"></button>
-            </div>
-            <div class="message-body">
-              <div class="board-item">
-                <div class="board-item-content"><span>Name: ${manager.name}</span></div>
-              </div>
-              <div class="board-item">
-                <div class="board-item-content"><span>Employee ID: ${manager.id}</span></div>
-              </div>
-              <div class="board-item">
-                <div class="board-item-content"><span>Email: ${manager.email}</span></div>
-              </div>
-              <div class="board-item">
-                <div class="board-item-content"><span>Office Phone: ${manager.officePhone}</span></div>
-              </div>
-            </div>
-          </article>
-        </div>
-        <div class="column is-narrow">
-          <article class="message is-info">
-            <div class="message-header">
-              <p>${intern.role}</p>
-              <button class="delete" aria-label="delete"></button>
-            </div>
-            <div class="message-body">
-              <div class="board-item">
-                <div class="board-item-content"><span>Name: ${intern.name}</span></div>
-              </div>
-              <div class="board-item">
-                <div class="board-item-content"><span>Employee ID: ${intern.id}</span></div>
-              </div>
-              <div class="board-item">
-                <div class="board-item-content"><span>Email: ${intern.email}</span></div>
-              </div>
-              <div class="board-item">
-                <div class="board-item-content"><span>School: ${intern.school}</span></div>
-              </div>
-            </div>
-          </article>
-        </div>
-        <div class="column is-narrow">
-          <article class="message is-link">
-            <div class="message-header">
-              <p>${engineer.role}</p>
-              <button class="delete" aria-label="delete"></button>
-            </div>
-            <div class="message-body">
-              <div class="board-item">
-                <div class="board-item-content"><span>Name: ${engineer.name}</span></div>
-              </div>
-              <div class="board-item">
-                <div class="board-item-content"><span>Employee ID: ${engineer.id}</span></div>
-              </div>
-              <div class="board-item">
-                <div class="board-item-content"><span>Email: ${engineer.email}</span></div>
-              </div>
-              <div class="board-item">
-                <div class="board-item-content"><span>GitHub: ${engineer.github}</span></div>
-              </div>
-            </div>
-          </article>
-        </div>
+        ${manager}
+        ${engineer}
+        ${intern}
       </div>
     </div>
     </div>
