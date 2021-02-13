@@ -77,7 +77,6 @@ function getEngineer() {
     </article>
   </div>
     `).join('');
-    // engineerCards.push(engineerCard);
     getRole();
   })
     .catch((error) => {
@@ -113,7 +112,6 @@ function getIntern() {
       </article>
     </div>
     `).join('');
-    // interCards.push(internCard);
     getRole();
   })
     .catch((error) => {
@@ -142,7 +140,6 @@ function getRole() {
 async function makeHTML(){
   try {
     console.log('Please wait while the index.html file is being created.');
-    // console.log(managerCard, internCards, engineerCards);
     const html = buildHTMLTemplate(managerCard, internCard, engineerCard);
     fs.writeFileSync('./src/index.html', html);
     console.log('Your file has been successfully written to the (src) folder of the project.');
