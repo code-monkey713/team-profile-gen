@@ -6,18 +6,14 @@ const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 const Manager = require('./lib/Manager');
 const buildHTMLTemplate = require('./src/template');
-// const Teamprofile = require('./lib/Teamprofile')
 
-// let managerArray = [];
-// let engineerArray = [];
-// let internArray = [];
 let managerCard = '';
 let engineerCard = '';
 let internCard = '';
 
 function getManager() {
   inquirer.prompt(questions.manager).then((e) => {
-    const newManager = new Manager(e.name, e.id, e.email, e.officePhone);
+    const newManager = new Manager(e.name, e.id, e.email, e.officeNumber);
     const managerArray = [];
     managerArray.push(newManager);
     managerCard = managerArray.map(m => `
@@ -38,7 +34,7 @@ function getManager() {
             <div class="board-item-content"><span>Email: ${m.email}</span></div>
           </div>
           <div class="board-item">
-            <div class="board-item-content"><span>Office Phone: ${m.officePhone}</span></div>
+            <div class="board-item-content"><span>Office Phone: ${m.officeNumber}</span></div>
           </div>
         </div>
       </article>
@@ -80,6 +76,7 @@ function getEngineer() {
     </article>
   </div>
     `).join('');
+    // engineerCards.push(engineerCard);
     getRole();
   })
     .catch((error) => {
@@ -116,6 +113,7 @@ function getIntern() {
       </article>
     </div>
     `).join('');
+    // interCards.push(internCard);
     getRole();
   })
     .catch((error) => {
@@ -144,7 +142,7 @@ function getRole() {
 async function makeHTML(){
   try {
     console.log('Please wait while the index.html file is being created.');
-    // console.log(managerCard, internCard, engineerCard);
+    // console.log(managerCard, internCards, engineerCards);
     const html = buildHTMLTemplate(managerCard, internCard, engineerCard);
     fs.writeFileSync('./src/index.html', html);
     console.log('Your file has been successfully written to the (src) folder of the project.');
