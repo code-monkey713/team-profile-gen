@@ -33,7 +33,7 @@ function getManager() {
             <div class="board-item-content"><span>Employee ID: ${m.id}</span></div>
           </div>
           <div class="board-item">
-            <div class="board-item-content"><span>Email: ${m.email}</span></div>
+            <div class="board-item-content"><span>Email: <a href="mailto:${m.email}">${m.email}</a></span></div>
           </div>
           <div class="board-item">
             <div class="board-item-content"><span>Office Phone: ${m.officeNumber}</span></div>
@@ -68,10 +68,10 @@ function getEngineer() {
           <div class="board-item-content"><span>Employee ID: ${g.id}</span></div>
         </div>
         <div class="board-item">
-          <div class="board-item-content"><span>Email: ${g.email}</span></div>
+          <div class="board-item-content"><span>Email: <a href="mailto:${g.email}">${g.email}</a></span></div>
         </div>
         <div class="board-item">
-          <div class="board-item-content"><span>GitHub: ${g.github}</span></div>
+          <div class="board-item-content"><span>GitHub: <a href="https://github.com/${g.github}" target="_blank">${g.github}</a></span></div>
         </div>
       </div>
     </article>
@@ -103,7 +103,7 @@ function getIntern() {
             <div class="board-item-content"><span>Employee ID: ${i.id}</span></div>
           </div>
           <div class="board-item">
-            <div class="board-item-content"><span>Email: ${i.email}</span></div>
+            <div class="board-item-content"><span>Email: <a href="mailto:${i.email}">${i.email}</a></span></div>
           </div>
           <div class="board-item">
             <div class="board-item-content"><span>School: ${i.school}</span></div>
@@ -141,8 +141,8 @@ async function makeHTML(){
   try {
     console.log('Please wait while the index.html file is being created.');
     const html = buildHTMLTemplate(managerCard, internCard, engineerCard);
-    fs.writeFileSync('./src/index.html', html);
-    console.log('Your file has been successfully written to the (src) folder of the project.');
+    fs.writeFileSync('./dist/index.html', html);
+    console.log('Your file has been successfully written to the (dist) folder of the project.');
     await open('./src/index.html')
     console.log('Check your browser for the team profile generated!');
   } catch (error){
