@@ -30,7 +30,7 @@ To run this application, you will need to install the following modules:
 
 You will open the app with "node index.js". Once the app starts, you will be presented with questions about the manager and then the team information details. Enter all their information on the command line interface (CLI) and the application will generate a HTML file with the information you entered for your team. Your generated file will be located in the "dist" folder of the project folder along with the CSS file. 
 
-A demo video walkthrough can be played at the link below. 
+A demo video walkthrough can be viewed at the link below. 
 
 [Video Walkthrough](https://drive.google.com/file/d/1Uk0bIg2LE5T5aZ2xYjvja0l1C_mWsccF/view?usp=sharing)
 

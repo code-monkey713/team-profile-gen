@@ -137,15 +137,15 @@ function getRole() {
     });
 }
 
-async function makeHTML(){
+async function makeHTML() {
   try {
     console.log('Please wait while the index.html file is being created.');
     const html = buildHTMLTemplate(managerCard, internCard, engineerCard);
     fs.writeFileSync('./dist/index.html', html);
     console.log('Your file has been successfully written to the (dist) folder of the project.');
-    await open('./src/index.html')
+    await open('./src/index.html');
     console.log('Check your browser for the team profile generated!');
-  } catch (error){
+  } catch (error) {
     console.log(error);
   }
 }
